@@ -1,6 +1,7 @@
 <template>
 	<div id="note-editor">
-		<textarea @input="editNote"></textarea>
+        <input name="header" v-model="editHead" type="text" class="form-control" placeholder="标题">
+		<textarea @input="editNote" placeholder="笔记内容"> </textarea>
 	</div>
 </template>
 <script>
@@ -8,15 +9,20 @@
 		name:'editor',
 		data(){
 			return {
-				editNote:''
+				editNote:'',
+				editHead:''
 			}
 		}
 	}
 </script>
 <style>
+#note-editor input{
+	border-radius: 0;
+}
 #note-editor textarea {
   height: 100%;
-  border: 0;
+  width: 100%;
+  border: 1px solid #ccc;
   border-radius: 0;
 }
 </style>

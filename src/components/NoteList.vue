@@ -3,8 +3,8 @@
 		<div id="list-header">
 			<h2>{{name}}|username</h2>
 			<div class="btn-group">
-				<button type="button" class="btn btn-primary" @click="show(all)">所有笔记</button>
-				<button type="button" class="btn btn-primary" @click="show(favor)">喜欢的</button>
+				<button type="button" class="btn btn-primary" @click="show('all')">所有笔记</button>
+				<button type="button" class="btn btn-default" @click="show('favor')">喜欢的</button>
 			</div>
 		</div>
 		<div class="container">
@@ -29,7 +29,7 @@
 				}]
 			}
 		},
-		methosd:{
+		methods:{
 			show:function(type){
 				console.log(type);
 			}

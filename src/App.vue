@@ -3,6 +3,9 @@
     <toolbar></toolbar>
     <note-list></note-list>
     <editor></editor>
+     <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+    <p>{{count}}</p>
   </div>
 </template>
 
@@ -11,12 +14,26 @@ import Hello from './components/Hello'
 import Toolbar from './components/Toolbar.vue'
 import NoteList from './components/NoteList.vue'
 import Editor from './components/Editor.vue'
+
 export default {
   name: 'app',
   components: {
     Toolbar,
     NoteList,
     Editor
+  },
+  computed:{
+    count(){
+      return this.$store.state.count
+    }
+  },  
+  methods: {
+    increment () {
+      this.$store.commit('increment')
+    },
+    decrement () {
+      this.$store.commit('decrement')
+    }
   }
 }
 </script>
@@ -53,6 +70,7 @@ body {
   font-weight: 400;
 }
 #note-editor {
+  min-width: 600px;
   height: 100%;
   margin-left: 380px;
 }
