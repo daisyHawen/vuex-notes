@@ -1,11 +1,14 @@
 <template>
 	<div id="toolbar">
 		<i @click="addNote" class="glyphicon glyphicon-plus"></i>
-		<i @click="tooglefavorite" class="glyphicon glyphicon-star" :class="{starred: activeNote.favorite}"></i>
+		<i @click="toggleFavorite" class="glyphicon glyphicon-star" :class="{starred: activeNote.favorite}"></i>
 		<i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
 	</div>
 </template>
 <script>
+// import {addNote} from '../vuex/actions.js'
+import {mapActions,mapGetters} from 'vuex'
+
 export default {
   name: 'hello',
   data () {
@@ -16,24 +19,18 @@ export default {
       }
     }
   },
-  methods:{
-    addNote:function(){
-      console.log('addNote');
-    }, 
-    tooglefavorite:function(){
-      console.log('addNote');
-      if(!this.activeNote.favorite){
-      this.activeNote.favorite=true;
-
-    }else{
-      this.activeNote.favorite=false;
-
-    }
-    },
-     deleteNote:function(){
-      console.log('addNote');
-    }
-  }
+  methods:mapActions(['addNote','deleteNote','toggleFavorite'])
+  // methods:{
+  //   addNote(){
+  //     this.$store.commit('ADD_NOTE');
+  //   },
+  //   deleteNote(){
+  //     this.$store.commit('DELETE_NOTE');
+  //   },
+  //   tooglefavorite(){
+  //     this.$store.commit('TOGGLE_FAVORTE')
+  //   },
+  // }
 }
 </script>
 

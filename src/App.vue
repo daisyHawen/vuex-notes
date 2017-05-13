@@ -25,6 +25,9 @@ export default {
   computed:{
     count(){
       return this.$store.state.count
+    },
+    notes(){
+      return this.$store.state.notes
     }
   },  
   methods: {
